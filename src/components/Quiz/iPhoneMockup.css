@@ -1,0 +1,38 @@
+.iphone-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.iphone-frame {
+    position: relative;
+    width: 500px;
+    height: 600px;
+    background: #444;
+    border-radius: 40px;
+    overflow: hidden;
+}
+
+.iphone-screen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #f3f2f1;
+    border-radius: 15px;
+    overflow: auto;
+    padding: 15px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    display: none;
+}
+
+/* You can customize colors, shadows, and other styles as needed */

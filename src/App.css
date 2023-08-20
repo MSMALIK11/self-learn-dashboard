@@ -1,0 +1,70 @@
+body {
+    background-color: #f3f2f1 !important;
+}
+
+.card {
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 110px;
+    width: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border: 2px solid transparent;
+    transition: border 0.1s linear;
+}
+
+textarea {
+
+    border: 2px solid transparent;
+    outline: none;
+    border: none;
+}
+
+input:hover {
+    border: 2px solid skyblue;
+
+}
+
+textarea:hover {
+    border: 2px solid skyblue;
+
+}
+
+::placeholder {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.primary-button {
+    background-color: #19fd;
+    color: #fff;
+    padding: 5px 20px;
+    font-size: 14px;
+    letter-spacing: 0.1px;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.primary-button:hover {
+    background-color: rgba(17, 152, 255, 0.687);
+
+}
+
+.primary-button:active {
+    transform: scale(0.9625);
+
+}
+
+.editor {
+    background-color: #fff;
+    height: 100%;
+
+}
