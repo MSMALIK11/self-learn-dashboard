@@ -23,6 +23,13 @@ export const sidebarLinks: linksPros[] = [
         label: 'Add New',
         icon: <AddBoxRounded />
 
+    },
+    {
+        key: 3,
+        path: '/test',
+        label: 'Test',
+        icon: <AddBoxRounded />
+
     }
 ];
 

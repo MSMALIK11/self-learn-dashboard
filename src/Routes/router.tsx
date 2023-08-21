@@ -5,6 +5,7 @@ import Layout from '../Layouts/Layout';
 import CourseLists from '../components/Quiz/CourseLists';
 import AddNewQuiz from '../components/Quiz/AddNewQuiz';
 import AddQuizContent from '../components/Quiz/AddQuizContent';
+import Test from '../components/Test/Test';
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/course/quiz/:name/content/add',
                 element: <AddQuizContent />
+            },
+            {
+                path: 'test',
+                element: <Test />
             }
         ]
     },

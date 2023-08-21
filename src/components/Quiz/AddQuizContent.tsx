@@ -12,6 +12,9 @@ import StarsIcon from '@mui/icons-material/Stars';
 import { Button } from '@mui/material';
 import MobilePhoneUI from './MobilePhoneUI';
 import ModalView from './ModalView';
+import SingleChoiceQuize from './QuizType/SingleChoiceQuize';
+import ReorderComponent from './QuizType/ReorderComponent';
+import TrueOrFalse from './QuizType/TrueOrFalse';
 
 function AddQuizContent() {
     const [codeString, setCodeString] = useState("")
@@ -20,6 +23,7 @@ function AddQuizContent() {
     const [content, setContent] = useState([]);
     const [open, setOpen] = useState(false)
     const [activeContent, setActiveContent] = useState("");
+    const [activeChoice, setActiveChoice] = useState("Content Type")
     const [modalValue, setModalValue] = useState([])
     const handleEditorChange = (val) => {
         console.log('markdownText', codeString);
@@ -55,34 +59,63 @@ function AddQuizContent() {
             }
             return item;
         })
-        setContent(updatedContents)
-        console.log('updatedContents', updatedContents);
+        setContent(updatedContents);
+        setCodeString("")
 
-        console.log('content new ', content)
 
     }
     const handleModalValue = (item) => {
         setOpen(!open);
         setModalValue(item)
 
+
     }
+    const quizType = ["Content Type", "Single choice", "True/False", "Reorder"];
+
     return (
-        <div className='container'>
+        <div>
+            <div className="navigation flex p-3 gap-4 bg-white mb-4 w-[500px] rounded-md">
+                {
+                    quizType.map((type) => {
+                        return (
+                            <div onClick={() => setActiveChoice(type)} className={` ${activeChoice === type ? 'bg-blue-700' : 'bg-blue-400'} px-2 py-2 rounded-md hover:bg-blue-600 transition duration-300 ease-in-out cursor-pointer`}>
+                                <Heading text={type} color="#fff" />
+                            </div>
+                        )
+                    })
+                }
+
+            </div>
 
             <section className='grid grid-cols-2 gap-4 flex-1'>
 
-                <div className=" bg-white p-3">
-                    <InputControl value={text} placeholder='Add title' event={handleChange} />
-                    {/* <div className="editor">
+
+                {
+                    activeChoice === "Single choice" && <SingleChoiceQuize />
+                }
+                {
+                    activeChoice === "Reorder" && <ReorderComponent />
+                }
+                {
+                    activeChoice === "True/False" && <TrueOrFalse />
+                }
+                {
+                    activeChoice === "Content Type" &&
+
+
+                    <div className=" bg-white p-3">
+                        <InputControl value={text} placeholder='Add title' event={handleChange} />
+                        {/* <div className="editor">
                         <Editor event={handleEditorChange} markdownText={codeString} />
 s
                     </div> */}
-                    <div className='mt-10'>
-                        <PrimaryButton title='Add' event={handleAddContent} />
+                        <div className='mt-10'>
+                            <PrimaryButton title='Add' event={handleAddContent} />
+
+                        </div>
 
                     </div>
-
-                </div>
+                }
                 {/* right content list  */}
                 <div className="right-list shadow bg-white">
                     <div className='p-4 bg-blue-400'>
